@@ -1,4 +1,6 @@
 const readline = require('readline');
+var Sentiment = require('sentiment');
+var sentiment = new Sentiment();
 const rl = readline.createInterface({
     input : process.stdin, 
     output : process.stdout
@@ -19,19 +21,23 @@ let recursiveAsyncReadLine = function () {
     if(!answer.includes(' ')){
         return answer.length;
      };
-     const { length: strLen } = answer;
-     const { length: numWords } = answer.split(' ');
-     const average = (strLen - numWords + 1) / numWords;
+     let charsLen = chars.length;
+    //  console.log(charsLen);
+     let wordsLen = words.length;
+    //  console.log(wordsLen);
+     const average = (charsLen - wordsLen + 1) / wordsLen;
      let findDuplicates = arr => arr.filter((item, index) => arr.lastIndexOf(item) != index)
     
      console.log(findDuplicates(words)) // All duplicates
      console.log([...new Set(findDuplicates(words))]) // Unique duplicates
 
-    console.log("You have", words.length,"words in this sentence");
+    console.log("You have", wordsLen,"words in this sentence");
     console.log(words);
-    console.log("You have", chars.length,"chacters in this sentence");
+    console.log("You have", charsLen,"chacters in this sentence");
     console.log(chars);
     console.log(average);
+    var result = sentiment.analyze(answer);
+    console.dir(result);
     rl.close();
   });
 };
