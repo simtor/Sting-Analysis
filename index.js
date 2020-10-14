@@ -27,7 +27,13 @@ let recursiveAsyncReadLine = function () {
     //  console.log(wordsLen);
      const average = (charsLen - wordsLen + 1) / wordsLen;
      let findDuplicates = arr => arr.filter((item, index) => arr.lastIndexOf(item) != index)
-    
+     answer = answer.toLowerCase();                                    
+    if(answer.length <= 3) { return 1; }                             
+      answer = answer.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');   
+      answer = answer.replace(/^y/, '');                                 
+      let syllable = answer.match(/[aeiouy]{1,2}/g).length; 
+      
+     console.log(syllable);
      console.log(findDuplicates(words)) // All duplicates
      console.log([...new Set(findDuplicates(words))]) // Unique duplicates
 
