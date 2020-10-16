@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 
  
 let recursiveAsyncReadLine = function () {
-  rl.question('Names of the drivers: ', function (answer) {
+  rl.question('PLease enter your text here: ', function (answer) {
     let chars = answer.split("");
     for (let i = 0; i < chars.length - 1; i++) {
         chars[i] += " ";
