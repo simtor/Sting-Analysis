@@ -32,7 +32,9 @@ let recursiveAsyncReadLine = function () {
       answer = answer.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');   
       answer = answer.replace(/^y/, '');                                 
       let syllable = answer.match(/[aeiouy]{1,2}/g).length; 
-      
+      const text = answer;
+      let numOfSentences = text.match(/[\w|)][.?!](\s|$)/g).length;
+      console.log(numOfSentences); 
      console.log(syllable);
      console.log(findDuplicates(words)) // All duplicates
      console.log([...new Set(findDuplicates(words))]) // Unique duplicates
