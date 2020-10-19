@@ -21,17 +21,19 @@ let recursiveAsyncReadLine = function () {
     if(!answer.includes(' ')){
         return answer.length;
      };
-     let charsLen = chars.length;
-    //  console.log(charsLen);
-     let wordsLen = words.length;
-    //  console.log(wordsLen);
-     const average = (charsLen - wordsLen + 1) / wordsLen;
-     let findDuplicates = arr => arr.filter((item, index) => arr.lastIndexOf(item) != index)
      answer = answer.toLowerCase();                                    
     if(answer.length <= 3) { return 1; }                             
       answer = answer.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');   
       answer = answer.replace(/^y/, '');                                 
-      let syllable = answer.match(/[aeiouy]{1,2}/g).length;
+     
+     
+    let syllable = answer.match(/[aeiouy]{1,2}/g).length;
+    let charsLen = chars.length;
+    //  console.log(charsLen);
+    let wordsLen = words.length;
+    //  console.log(wordsLen);
+    const average = (charsLen - wordsLen + 1) / wordsLen;
+    let findDuplicates = arr => arr.filter((item, index) => arr.lastIndexOf(item) != index)
     // const text = answer;
     // console.log(text);
     // let numOfSentences = text.match(/[\w|)][.?!](\s|$)/g).length;
