@@ -1,5 +1,66 @@
+const readline = require('readline');
+const rl = readline.createInterface({
+    input : process.stdin, 
+    output : process.stdout
+  });
+
+//   Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,, comes from a line in section 1.10.32.
+
+let recursiveAsyncReadLine = function () {
+    rl.question('Names of the drivers: ', function (answer) {
+        function calculateFlesch(totalSentences, totalWords, totalSyllables, ) {
+            // return (206.835 - (1.015 * (totalWords/totalSentences)) - (84.6 *(totalSyllables/totalWords)));
+            return (0.39 * (totalWords/totalSentences) + 11.8 * (totalSyllables/totalWords)-15.59)
+          }
+          
+          function getSyllables(word) {
+            word = word.toLowerCase();
+            if(word.length <= 3) { return 1; }
+            word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+            word = word.replace(/^y/, '');
+            var syl = word.match(/[aeiouy]{1,2}/g);
+            return (syl && syl.length) || 0;
+          }
+          
+          var totalSentences = 0, totalWords = 0, totalSyllables = 0;
+            
+          //   var text = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,, comes from a line in section 1.10.32.";
+          var text = answer;  
+          var sentences = text.split(/[\\.!\?]/);
+            totalSentences = sentences.length;
+            sentences.forEach(function (sentence) {
+              var word = "";
+              for (var i = 0; i < sentence.length; i++) {
+                word += sentence[i];
+                if(sentence[i] == " ") {
+                  totalWords++;
+                  totalSyllables += getSyllables(word);
+                  word = "";
+                }
+              }
+          
+              if(word.length > 0) {
+                totalWords++;
+                totalSyllables += getSyllables(word);
+                word = ""
+              }
+            });
+            console.log(totalSyllables);
+            console.log(calculateFlesch(totalSentences, totalWords, totalSyllables));
+        
+    });
+  };
+  recursiveAsyncReadLine();
+
+
+
+  
+
 // var Sentiment = require('sentiment');
 // var sentiment = new Sentiment();
+// var exports = [];
+// src="node_modules/flesch-kincaid/flesch-kincaid.js"
+// var FleschKincaid = exports;
 // var result = sentiment.analyze('Cats are stupid.');
 // console.dir(result);
 
@@ -34,3 +95,11 @@
 // const text = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,, comes from a line in section 1.10.32.";
 // let numOfSentences = text.match(/[\w|)][.?!](\s|$)/g).length;
 // console.log(numOfSentences); 
+
+
+// var fleschKincaid = require('flesch-kincaid')
+
+// // For “The Australian platypus is seemingly a hybrid of a mammal and reptilian
+// // creature.” (1 sentence, 13 words, 26 syllables).
+// console.log(fleschKincaid({sentence: 1, word: 13, syllable: 26}))
+// // => 13.08
