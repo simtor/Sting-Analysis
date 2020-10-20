@@ -35,8 +35,6 @@ let recursiveAsyncReadLine = function () {
           }
           
           var totalSentences = 0, totalWords = 0, totalSyllables = 0;
-            
-          //   var text = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,, comes from a line in section 1.10.32.";
           var text = answer;  
           var sentences = text.split(/[\\.!\?]/);
             totalSentences = sentences.length;
@@ -50,7 +48,6 @@ let recursiveAsyncReadLine = function () {
                   word = "";
                 }
               }
-          
               if(word.length > 0) {
                 totalWords++;
                 totalSyllables += getSyllables(word);
@@ -61,20 +58,20 @@ let recursiveAsyncReadLine = function () {
             //  console.log(charsLen);
             let wordsLen = words.length;
             //  console.log(wordsLen);
+            // console.log(words);
+            // console.log(chars);
+            console.log("Number of words: ", wordsLen);
+            console.log("Number of characters: ", charsLen);
             const average = (charsLen - wordsLen + 1) / wordsLen;
+            console.log("Avarage word length: ",Math.round(average));
+            console.log("Most common word");
             let findDuplicates = arr => arr.filter((item, index) => arr.lastIndexOf(item) != index)
             console.log(findDuplicates(words)) // All duplicates
             console.log([...new Set(findDuplicates(words))]) // Unique duplicates
-
-            console.log("You have", wordsLen,"words in this sentence");
-            // console.log(words);
-            console.log("You have", charsLen,"chacters in this sentence");
-            // console.log(chars);
-            console.log(average);
             var result = sentiment.analyze(answer);
             console.dir(result);
             console.log(totalSyllables);
-            console.log(calculateFlesch(totalSentences, totalWords, totalSyllables));
+            console.log(Math.round(calculateFlesch(totalSentences, totalWords, totalSyllables)));
             rl.close();
     });
   };
