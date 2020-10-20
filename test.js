@@ -67,9 +67,9 @@ let recursiveAsyncReadLine = function () {
             console.log([...new Set(findDuplicates(words))]) // Unique duplicates
 
             console.log("You have", wordsLen,"words in this sentence");
-            console.log(words);
+            // console.log(words);
             console.log("You have", charsLen,"chacters in this sentence");
-            console.log(chars);
+            // console.log(chars);
             console.log(average);
             var result = sentiment.analyze(answer);
             console.dir(result);
