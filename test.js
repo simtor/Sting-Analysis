@@ -64,14 +64,16 @@ let recursiveAsyncReadLine = function () {
             console.log("Number of characters: ", charsLen);
             const average = (charsLen - wordsLen + 1) / wordsLen;
             console.log("Avarage word length: ",Math.round(average));
-            console.log("Most common word");
             let findDuplicates = arr => arr.filter((item, index) => arr.lastIndexOf(item) != index)
-            console.log(findDuplicates(words)) // All duplicates
-            console.log([...new Set(findDuplicates(words))]) // Unique duplicates
+            let duplicateTest = ([...new Set(findDuplicates(words))]) // Unique duplicates
+            console.log("Most common word in the text: ",duplicateTest[0]);
+            // console.log(totalSyllables);
+            console.log("Reading level of the text: ",Math.round(calculateFlesch(totalSentences, totalWords, totalSyllables)));
+            // console.log(findDuplicates(words)) // All duplicates
+            // console.log([...new Set(findDuplicates(words))]) // Unique duplicates
             var result = sentiment.analyze(answer);
             console.dir(result);
-            console.log(totalSyllables);
-            console.log(Math.round(calculateFlesch(totalSentences, totalWords, totalSyllables)));
+            console.log(Object.values(result))
             rl.close();
     });
   };
