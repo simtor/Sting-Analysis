@@ -7,6 +7,8 @@ const rl = readline.createInterface({
   });
 
 //   Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,, comes from a line in section 1.10.32.
+// "Did LA give up too much to get a guy who has been labeled soft, although he puts up 19 and 9, which 11 other guys do? Is that a trick question? They gave up Kwa-me Brown, who cares? I could care less! First of all, understand something. When you're giving up first round picks, if you are a quality team in playoff contention, it really doesn't mean that much, that's number one. Number two and more importantly, Kwame Brown is gone! The City of Angels, Hollywood should be celebrating. Throw a parade already whether you win a championship or not. This man was a bonafide scrub! He can't play! No disrespect whatsoever, but I'm sorry to call, tell everybody the truth, the man cannot play the game of basketball. He has small hands, he can't catch the ball, he has bad feet, he can't really move even though he's mobile, doesn't really know what he's doing, doesn't have a post move that he or he puts to memory that he can do two times in a row. He has no game whatsoever, plays no defense, doesn't have the heart, the passion or anything that comes with it, and you're asking me whether they gave up too much? Please. The Los Angeles Lakers knew exactly what they were doing, they should be celebrating right now, and Kobe Bryant should not be saying a word!"
+
 
 let recursiveAsyncReadLine = function () {
     rl.question('Names of the drivers: ', function (answer) {
@@ -72,8 +74,10 @@ let recursiveAsyncReadLine = function () {
             // console.log(findDuplicates(words)) // All duplicates
             // console.log([...new Set(findDuplicates(words))]) // Unique duplicates
             var result = sentiment.analyze(answer);
-            console.dir(result);
-            console.log(Object.values(result))
+            console.log("Positive words from the text: ",);
+            result.positive.forEach(element => console.log(element));
+            console.log("Negative words from the text: ",);
+            result.negative.forEach(element => console.log(element));
             rl.close();
     });
   };
