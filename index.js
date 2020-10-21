@@ -11,7 +11,7 @@ const rl = readline.createInterface({
 
 
 let recursiveAsyncReadLine = function () {
-    rl.question('Names of the drivers: ', function (answer) {
+    rl.question('Please enter your text here: ', function (answer) {
         let chars = answer.split("");
         for (let i = 0; i < chars.length - 1; i++) {
             chars[i] += " ";
@@ -24,7 +24,6 @@ let recursiveAsyncReadLine = function () {
             return answer.length;
         };
     function calculateFlesch(totalSentences, totalWords, totalSyllables, ) {
-        // return (206.835 - (1.015 * (totalWords/totalSentences)) - (84.6 *(totalSyllables/totalWords)));
         return (0.39 * (totalWords/totalSentences) + 11.8 * (totalSyllables/totalWords)-15.59)
       }
       function getSyllables(word) {
@@ -32,17 +31,17 @@ let recursiveAsyncReadLine = function () {
         if(word.length <= 3) { return 1; }
         word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
         word = word.replace(/^y/, '');
-        var syl = word.match(/[aeiouy]{1,2}/g);
+        let syl = word.match(/[aeiouy]{1,2}/g);
         return (syl && syl.length) || 0;
       }
       
-      var totalSentences = 0, totalWords = 0, totalSyllables = 0;
-      var text = answer;  
-      var sentences = text.split(/[\\.!\?]/);
+      let totalSentences = 0, totalWords = 0, totalSyllables = 0;
+      let text = answer;  
+      let sentences = text.split(/[\\.!\?]/);
         totalSentences = sentences.length;
         sentences.forEach(function (sentence) {
           var word = "";
-          for (var i = 0; i < sentence.length; i++) {
+          for (let i = 0; i < sentence.length; i++) {
             word += sentence[i];
             if(sentence[i] == " ") {
               totalWords++;
@@ -57,11 +56,7 @@ let recursiveAsyncReadLine = function () {
           }
         });
     let charsLen = chars.length;
-    //  console.log(charsLen);
     let wordsLen = words.length;
-    //  console.log(wordsLen);
-    // console.log(words);
-    // console.log(chars);
     console.log("Number of words: ", wordsLen);
     console.log("Number of characters: ", charsLen);
     const average = (charsLen - wordsLen + 1) / wordsLen;
@@ -70,9 +65,7 @@ let recursiveAsyncReadLine = function () {
     let duplicateTest = ([...new Set(findDuplicates(words))]) // Unique duplicates
     console.log("Most common word in the text: ",duplicateTest[0]);
     console.log("Reading level of the text: ",Math.round(calculateFlesch(totalSentences, totalWords, totalSyllables)));
-    // console.log(findDuplicates(words)) // All duplicates
-    // console.log([...new Set(findDuplicates(words))]) // Unique duplicates
-    var result = sentiment.analyze(answer);
+    let result = sentiment.analyze(answer);
     console.log("Positive words from the text: ",);
     result.positive.forEach(element => console.log(element));
     console.log("Negative words from the text: ",);

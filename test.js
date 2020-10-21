@@ -57,7 +57,7 @@
 
  
 // let recursiveAsyncReadLine = function () {
-//   rl.question('PLease enter your text here: ', function (answer) {
+//   rl.question('Please enter your text here: ', function (answer) {
 //     let chars = answer.split("");
 //     for (let i = 0; i < chars.length - 1; i++) {
 //         chars[i] += " ";
@@ -98,8 +98,11 @@
 //   });
 // };
 // recursiveAsyncReadLine();
+// return (206.835 - (1.015 * (totalWords/totalSentences)) - (84.6 *(totalSyllables/totalWords)));
 
-
-
-
-
+// console.log(findDuplicates(words)) // All duplicates
+// console.log([...new Set(findDuplicates(words))]) // Unique duplicates
+//  console.log(wordsLen);
+// console.log(words);
+// console.log(chars);
+//  console.log(charsLen);
