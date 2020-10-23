@@ -15,12 +15,17 @@ Small programm allows user to know:
 ## Installation
 **On your terminal console**
 
-- https://randomwordgenerator.com/paragraph.php
+- git clone https://github.com/simtor/Sting-Analysis.git
 
-## How to run it
+## How to run CLI program:
 **On your terminal console**
 
   - `npm start`
+
+## How to run GUI program:
+**On your terminal console**
+
+  - `npm run dev`
 
 
 Created by Simone Ram🐏
